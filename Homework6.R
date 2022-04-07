@@ -32,9 +32,12 @@ glm.pred <- ifelse(glm.probs > 0.5, "E", "W")
 attach(testball)
 table(glm.pred,testball$Division)
 
+#Change E and W to 0 and 1
 as.numeric(Hitters$Division)
 gdata::mapLevels(Hitters$Division)
 as.numeric(Hitters$Division) - 1
+
+#Plots
 #Logistic Regression
 ggplot(Hitters, aes(x=Years, y=as.numeric(Division) - 1)) + 
   geom_point(alpha=.5) +
